@@ -1,0 +1,28 @@
+{
+  "HomePage": {
+    "title": "Bonjour le monde!"
+  },
+  "auth": {
+    "SignIn": {
+      "title": "Se connecter",
+      "form": {
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "submit": "Se connecter"
+      }
+    },
+    "SignUp": {
+      "title": "S'inscrire",
+      "form": {
+        "name": "Nom Prénom",
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "passwordConfirm": "Confirmer le mot de passe",
+        "submit": "S'inscrire"
+      }
+    },
+    "global": {
+      "fillAllFields": "Veuillez remplir tous les champs."
+    }
+  }
+}

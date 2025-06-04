@@ -1,0 +1,28 @@
+{
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "auth": {
+    "SignIn": {
+      "title": "Anmelden",
+      "form": {
+        "email": "E-Mail",
+        "password": "Passwort",
+        "submit": "Anmelden"
+      }
+    },
+    "SignUp": {
+      "title": "Registrieren",
+      "form": {
+        "name": "Name Nachname",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "passwordConfirm": "Passwort bestätigen",
+        "submit": "Registrieren"
+      }
+    },
+    "global": {
+      "fillAllFields": "Bitte füllen Sie alle Felder aus."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "HomePage": {
+    "title": "Merhaba Dünya!"
+  },
+  "auth": {
+    "SignIn": {
+      "title": "Giriş Yap",
+      "form": {
+        "email": "E-posta",
+        "password": "Şifre",
+        "submit": "Giriş Yap"
+      }
+    },
+    "SignUp": {
+      "title": "Kaydol",
+      "form": {
+        "name": "Ad Soyad",
+        "email": "E-posta",
+        "password": "Şifre",
+        "passwordConfirm": "Şifre Tekrarı",
+        "submit": "Kaydol"
+      }
+    },
+    "global": {
+      "fillAllFields": "Lütfen tüm alanları doldurun."
+    }
+  }
+}

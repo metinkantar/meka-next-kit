@@ -1,0 +1,28 @@
+{
+  "HomePage": {
+    "title": "Silav Dinya!"
+  },
+  "auth": {
+    "SignIn": {
+      "title": "Têkeve",
+      "form": {
+        "email": "E-name",
+        "password": "Şîfre",
+        "submit": "Têkeve"
+      }
+    },
+    "SignUp": {
+      "title": "Qeyd Bibe",
+      "form": {
+        "name": "Nav û Paşnav",
+        "email": "E-name",
+        "password": "Şîfre",
+        "passwordConfirm": "Şîfreya Tekrar",
+        "submit": "Qeyd Bibe"
+      }
+    },
+    "global": {
+      "fillAllFields": "Ji kerema xwe hemû qadan dagirin."
+    }
+  }
+}

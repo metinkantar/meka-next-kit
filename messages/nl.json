@@ -1,0 +1,28 @@
+{
+    "HomePage": {
+        "title": "Hello world!"
+    },
+    "auth": {
+        "SignIn": {
+            "title": "Inloggen",
+            "form": {
+                "email": "E-mail",
+                "password": "Wachtwoord",
+                "submit": "Inloggen"
+            }
+        },
+        "SignUp": {
+            "title": "Aanmelden",
+            "form": {
+                "name": "Naam Achternaam",
+                "email": "E-mail",
+                "password": "Wachtwoord",
+                "passwordConfirm": "Wachtwoord bevestigen",
+                "submit": "Aanmelden"
+            }
+        },
+        "global": {
+            "fillAllFields": "Vul alstublieft alle velden in."
+        }
+    }
+}
