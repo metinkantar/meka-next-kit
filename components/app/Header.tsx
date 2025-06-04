@@ -35,7 +35,7 @@ export default function Header() {
                         <ul className="flex space-x-8">
                             {menuItems.map((item) => (
                                 <li key={item.name}>
-                                    <Link href={item.href} className="text-base font-medium hover:text-primary transition-colors">
+                                    <Link href={item.href} className="text-base font-medium hover:text-zinc-400 transition-colors">
                                         {item.name}
                                     </Link>
                                 </li>
