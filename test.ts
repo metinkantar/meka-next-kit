@@ -11,7 +11,7 @@ const PasswordSchema = z.object({
 });
 
 // Test edilecek şifre
-const testPassword = "crle6fhsA+*";
+const testPassword = "123456MeKa+*";
 
 // Şifreyi doğrula
 const result = PasswordSchema.safeParse({ password: testPassword });
