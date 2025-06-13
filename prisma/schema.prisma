@@ -1,0 +1,181 @@
+// Veritabanı bağlantı ayarları
+datasource db {
+    provider = "postgresql" // PostgreSQL veritabanı kullanılıyor
+    url      = env("DATABASE_URL") // Ortam değişkenlerinden veritabanı URL'si alınır
+}
+
+// Prisma istemcisi ayarları
+generator client {
+    provider = "prisma-client-js"
+}
+
+// Kullanıcı Modeli: Uygulamanızdaki kullanıcıları temsil eder.
+model User {
+    id                     String                  @id @default(cuid()) // Otomatik oluşturulan benzersiz kullanıcı kimliği
+    email                  String                  @unique // Kullanıcının e-posta adresi, benzersiz olmalı
+    password               String? // Kullanıcının hashlenmiş parolası (düz metin parola asla saklanmaz)
+    name                   String? // Kullanıcının adı
+    emailVerified          DateTime? // E-posta adresinin ne zaman doğrulandığı
+    image                  String? // Kullanıcının profil resmi URL'si
+    isActivated            Boolean                 @default(false) // Hesabın etkin olup olmadığını gösterir (örn. e-posta doğrulaması sonrası)
+    lastLoginAt            DateTime? // Son giriş tarihi ve saati
+    loginAttempts          Int                     @default(0) // Başarısız giriş denemesi sayısı
+    accountLockedUntil     DateTime? // Hesabın kilitli kalacağı tarih (belirli sayıda başarısız deneme sonrası)
+    loginCount             Int                     @default(0) // Kullanıcının toplam giriş sayısı
+    securityQuestion       String? // İsteğe bağlı güvenlik sorusu
+    securityAnswerHash     String? // Güvenlik sorusunun hashlenmiş cevabı
+    // YENİ ALANLAR: Banlama ve Kısıtlama için
+    isBanned               Boolean                 @default(false) // Kullanıcının banlı olup olmadığını gösterir
+    banReason              String? // Banlanma nedeni (örn. "Spam", "Uygunsuz içerik")
+    bannedUntil            DateTime? // Banın biteceği tarih (geçici banlar için)
+    restrictionLevel       Int                     @default(0) // Kısıtlama seviyesi (0: yok, 1: kısıtlı, 2: daha kısıtlı, vb.)
+    restrictedFeatures     String[] // Kısıtlanan özelliklerin listesi (örn. ["yorum_yapma", "mesaj_gonderme"])
+    // İlişkiler
+    accounts               Account[] // Kullanıcıya ait harici kimlik doğrulama hesapları (örn. Google, GitHub)
+    sessions               Session[] // Kullanıcıya ait oturumlar
+    Authenticators         Authenticator[] // WebAuthn destekleyici kimlik doğrulayıcılar (isteğe bağlı)
+    role                   Role?                   @relation(fields: [roleId], references: [id])
+    roleId                 String?
+    activityLogs           ActivityLog[]
+    notificationPreference NotificationPreference?
+    // Zaman damgaları
+    createdAt              DateTime                @default(now()) // Kayıt tarihi ve saati
+    updatedAt              DateTime                @updatedAt // Son güncelleme tarihi ve saati
+
+    @@map("users") // Veritabanı tablosunun adı "users" olacak
+}
+
+// Hesap Modeli: NextAuth.js tarafından kullanılan harici kimlik doğrulama sağlayıcılarını temsil eder.
+model Account {
+    userId            String // Hesabın ait olduğu kullanıcının kimliği
+    type              String // Sağlayıcı türü (örn. "oauth", "credentials")
+    provider          String // Kimlik doğrulama sağlayıcısı (örn. "google", "github")
+    providerAccountId String // Sağlayıcıya özel kullanıcı kimliği
+    refresh_token     String? // Yenileme tokenı
+    access_token      String? // Erişim tokenı
+    expires_at        Int? // Tokenın geçerlilik süresi
+    token_type        String? // Token türü
+    scope             String? // İzin verilen kapsamlar
+    id_token          String? // Kimlik tokenı
+    session_state     String? // Oturum durumu
+    // İlişkiler
+    user              User     @relation(fields: [userId], references: [id], onDelete: Cascade) // Hesap sahibini temsil eden kullanıcı
+    // Zaman damgaları
+    createdAt         DateTime @default(now()) // Kayıt tarihi
+    updatedAt         DateTime @updatedAt // Son güncelleme tarihi
+
+    @@id([provider, providerAccountId]) // provider ve providerAccountId kombinasyonu benzersiz olmalı
+    @@map("accounts") // Veritabanı tablosunun adı "accounts" olacak
+}
+
+// Oturum Modeli: Kullanıcı oturumlarını yönetir.
+model Session {
+    sessionToken String   @unique // Benzersiz oturum tokenı
+    userId       String // Oturumun ait olduğu kullanıcının kimliği
+    expires      DateTime // Oturumun sona ereceği zaman
+    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade) // Oturum sahibini temsil eden kullanıcı
+
+    // Zaman damgaları
+    createdAt DateTime @default(now()) // Kayıt tarihi
+    updatedAt DateTime @updatedAt // Son güncelleme tarihi
+
+    @@map("sessions") // Veritabanı tablosunun adı "sessions" olacak
+}
+
+// Doğrulama Tokenı Modeli: E-posta doğrulama ve şifre sıfırlama gibi tek kullanımlık tokenlar için.
+model VerificationToken {
+    identifier String // Tokenın ait olduğu kullanıcıyı/e-postayı tanımlayan değer
+    token      String   @unique // Benzersiz doğrulama tokenı
+    expires    DateTime // Tokenın sona ereceği zaman
+
+    @@id([identifier, token]) // identifier ve token kombinasyonu benzersiz olmalı
+    @@map("verification_tokens") // Veritabanı tablosunun adı "verification_tokens" olacak
+}
+
+// WebAuthn desteği için isteğe bağlı kimlik doğrulayıcı modeli.
+model Authenticator {
+    credentialID         String  @unique // Kimlik bilgilerinin benzersiz kimliği
+    userId               String // Kimlik doğrulayıcının ait olduğu kullanıcının kimliği
+    providerAccountId    String // Sağlayıcıya özel hesap kimliği
+    credentialPublicKey  String // Kimlik bilgilerinin açık anahtarı
+    counter              Int // İmza sayacı
+    credentialDeviceType String // Kimlik doğrulayıcının cihaz türü
+    credentialBackedUp   Boolean // Kimlik doğrulayıcının yedeklenip yedeklenmediği
+    transports           String? // Kimlik doğrulayıcının taşıma yöntemleri
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade) // Kimlik doğrulayıcı sahibini temsil eden kullanıcı
+
+    @@id([userId, credentialID]) // userId ve credentialID kombinasyonu benzersiz olmalı
+    @@map("authenticators") // Veritabanı tablosunun adı "authenticators" olacak
+}
+
+// Rol Modeli: Uygulamadaki farklı kullanıcı rollerini (örn. Admin, User) tanımlar.
+model Role {
+    id          String  @id @default(cuid()) // Otomatik oluşturulan benzersiz rol kimliği
+    name        String  @unique // Rol adı (örn. "Admin", "User"), benzersiz olmalı
+    description String? // Rolün açıklaması
+
+    users           User[]
+    rolePermissions RolePermission[] // Bu role sahip izinler (Yeni eklenen ilişki)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("roles") // Veritabanı tablosunun adı "roles" olacak
+}
+
+// YENİ MODEL: Permission - Uygulamada yapılabilecek belirli eylemleri tanımlar.
+model Permission {
+    id          String  @id @default(cuid()) // Benzersiz izin kimliği
+    name        String  @unique // İznin benzersiz adı (örn. "user.create", "post.delete", "settings.edit")
+    description String? // İznin açıklaması
+
+    rolePermissions RolePermission[] // Bu izne sahip roller
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("permissions") // Veritabanı tablosunun adı "permissions" olacak
+}
+
+// YENİ MODEL: RolePermission - Hangi rolün hangi izne sahip olduğunu belirten ara tablo.
+model RolePermission {
+    roleId       String
+    permissionId String
+    assignedAt   DateTime @default(now()) // İznin role ne zaman atandığı
+
+    role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+    permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+    @@id([roleId, permissionId]) // roleId ve permissionId kombinasyonu benzersiz olmalı
+    @@map("role_permissions") // Veritabanı tablosunun adı "role_permissions" olacak
+}
+
+// Notification Preferences
+model NotificationPreference {
+    id               String  @id @default(cuid()) // Tercihin benzersiz kimliği
+    userId           String  @unique // Tercihin ait olduğu kullanıcının kimliği, her kullanıcının tek bir tercih kaydı olur
+    user             User    @relation(fields: [userId], references: [id]) // User modeli ile ilişki
+    emailEnabled     Boolean @default(true) // E-posta bildirimleri açık mı?
+    smsEnabled       Boolean @default(false) // SMS bildirimleri açık mı?
+    inAppEnabled     Boolean @default(true) // Uygulama içi bildirimler açık mı?
+    promotionalEmail Boolean @default(true) // Promosyonel e-postalar açık mı?
+    securityAlerts   Boolean @default(true) // Güvenlik uyarıları açık mı?
+
+    @@index([userId]) // userId üzerinde indeksleme
+    @@map("notification_preferences") // Veritabanı tablosunun adı "notification_preferences" olacak
+}
+
+// Audit Trail / Loglama
+model ActivityLog {
+    id        String   @id @default(uuid()) // Log kaydının benzersiz kimliği
+    userId    String? // Eylemi gerçekleştiren kullanıcının kimliği
+    user      User?     @relation(fields: [userId], references: [id]) // User modeli ile ilişki
+    action    String // Gerçekleşen eylemin türü (örn. "password_change", "email_update", "account_lock")
+    details   Json? // Eylemle ilgili ek detaylar (örn. eski/yeni değerler, IP adresi)
+    timestamp DateTime @default(now()) // Eylemin gerçekleştiği zaman
+    ipAddress String? // Eylemin yapıldığı IP adresi
+
+    @@index([userId]) // userId üzerinde indeksleme, sorgu performansını artırır
+    @@map("activity_logs") // Veritabanı tablosunun adı "activity_logs" olacak
+}

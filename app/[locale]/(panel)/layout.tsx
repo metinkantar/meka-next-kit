@@ -70,8 +70,6 @@ export default async function RootLayout({ children, params }: Props) {
               </NextIntlClientProvider>
             </PanelLayout>
           </ActiveThemeProvider>
-
-
         </ThemeProvider>
         <Toaster />
       </body>

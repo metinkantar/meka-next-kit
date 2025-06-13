@@ -6,9 +6,11 @@ import { Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { ThemeSelector } from "../features/themes/ThemeSelector"
-import { ModeToggle } from "../features/themes/ModeToggle"
+import { ModeToggle } from "../features/themes/ModeToggle";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
+    const router = useRouter();
     const menuItems = [
         { name: "Home Page", href: "/" },
         { name: "About", href: "/about" },
@@ -24,7 +26,7 @@ export default function Header() {
                     <div className="flex-shrink-0">
                         <Link href="/" className="flex items-center">
                             <div className="relative h-10 w-10 mr-2">
-                                <Image src="/placeholder.svg?height=40&width=40" alt="Logo" fill className="object-contain" />
+                                <Image src="/images/global/meka-logo.png" alt="Logo" fill className="object-contain" />
                             </div>
                             {/* <span className="font-bold text-xl">Logo</span> */}
                         </Link>
@@ -64,13 +66,18 @@ export default function Header() {
                             </DropdownMenuContent>
                         </DropdownMenu>
 
-
+                        <Button variant="outline" className="cursor-pointer" onClick={() => {
+                            router.push("/login")
+                        }}>
+                            Sign In
+                        </Button>
+                        <Button variant="outline" className="cursor-pointer" onClick={() => {
+                            router.push("/panel")
+                        }}>
+                            Panel
+                        </Button>
                     </div>
-
-
                 </div>
-
-
             </div>
         </header>
     )

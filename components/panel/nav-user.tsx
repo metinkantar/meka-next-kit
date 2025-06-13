@@ -20,7 +20,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { User , SunDimIcon, Bell, LogOut } from "lucide-react"
-/* import { signOut } from "next-auth/react" */
+import { signOut } from "next-auth/react"
 
 export function NavUser({
   user,
@@ -87,7 +87,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem /* onClick={() => signOut()} */>
+            <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer">
               <LogOut />
               Log out
             </DropdownMenuItem>
