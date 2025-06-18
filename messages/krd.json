@@ -1,0 +1,72 @@
+{
+  "HomePage": {
+    "title": "Slav cîhan!"
+  },
+  "auth": {
+    "SignIn": {
+      "welcome_back": "Bi xêr hatî dîsa",
+      "login_to_your_account": "Têkeve hesabê xwe yê MeKa Inc",
+      "or_continue_with": "An jî bidomîne bi",
+      "dont_have_an_account": "Hesabekî te tune ye?",
+      "sign_up": "Tomar bike",
+      "login_success": "Têketin serketî bû!",
+      "form": {
+        "email": "E-name",
+        "password": "Şîfre",
+        "submit": "Têkeve"
+      }
+    },
+    "SignUp": {
+      "title": "Tomar bike",
+      "create_your_account": "Hesabê xwe çêke",
+      "form": {
+        "name": "Nav*",
+        "email": "E-name*",
+        "password": "Şîfre*",
+        "passwordConfirm": "Şîfreyê piştrast bike*",
+        "submit": "Tomar bike"
+      },
+      "already_have_an_account": "Jixwe hesabekî te heye?",
+      "login": "Têkeve"
+    },
+    "forgot_password": {
+      "title": "Şîfreya Xwe Bîr Kir?",
+      "description": "Navnîşana e-nameya xwe binivîse û em ê girêdanek ji bo sifirkirina şîfreya te bişînin.",
+      "email": "Navnîşana E-nameyê",
+      "submit": "Girêdana Sifirkirinê Bişîne",
+      "password_reset_link_sent": "Girêdana sifirkirina şîfreyê ji e-nameya te re hate şandin.",
+      "error_sending_reset_link": "Xeletî di şandina girêdana sifirkirina şîfreyê de.",
+      "unexpected_error": "Xeletiyek nediyar çêbû."
+    },
+    "reset_password": {
+      "reset_password_title": "Şîfreya Xwe Ya Nû Danîne",
+      "reset_password_description": "Ji kerema xwe şîfreya xwe ya nû binivîse û piştrast bike.",
+      "new_password": "Şîfreya Nû",
+      "confirm_password": "Şîfreyê Piştrast Bike",
+      "reset_password": "Şîfreyê Sifir Bike",
+      "password_reset_success": "Şîfreya te bi serkeftî hate guhertin!",
+      "error_resetting_password": "Xeletiyek di sifirkirina şîfreya te de çêbû.",
+      "unexpected_error": "Xeletiyek nediyar çêbû."
+    },
+    "global": {
+      "by_clicking_continue": "Bi tikandina bidomîne, tu bi me razî dibî",
+      "terms_of_service": "Mercên Xizmetê",
+      "and": "û",
+      "privacy_policy": "Siyaseta Nepenîtiyê",
+      "registration_success": "Tomarbûn serketî bû!",
+      "registration_error": "Tomarbûn têk çû!",
+      "login_success": "Têketin serketî bû!",
+      "login_error": "Têketin têk çû!",
+      "check_email": "Ji kerema xwe e-nameya xwe kontrol bike û hesabê xwe piştrast bike.",
+      "email_verification": "Piştrastkirina E-nameyê",
+      "email_verification_success": "Piştrastkirina e-nameyê serketî bû!",
+      "email_verification_error": "Piştrastkirina e-nameyê têk çû!",
+      "invalid_token": "Token nederbasdar e!",
+      "token_is_invalid_or_expired": "Token nederbasdar e an jî derbas bûye!",
+      "user_not_found": "Bikarhêner nehat dîtin!",
+      "invalid_password": "Şîfre nederbasdar e!",
+      "email_not_verified": "Ji kerema xwe e-nameya xwe piştrast bike berî ku têkeve",
+      "custom_error": "Xeletiyek nediyar çêbû"
+    }
+  }
+}

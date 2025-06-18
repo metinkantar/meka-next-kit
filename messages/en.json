@@ -1,0 +1,72 @@
+{
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "auth": {
+    "SignIn": {
+      "welcome_back": "Welcome back",
+      "login_to_your_account": "Login to your MeKa Inc account",
+      "or_continue_with": "Or continue with",
+      "dont_have_an_account": "Don't have an account?",
+      "sign_up": "Sign up",
+      "login_success": "Login successful!",
+      "form": {
+        "email": "Email",
+        "password": "Password",
+        "submit": "Sign In"
+      }
+    },
+    "SignUp": {
+      "title": "Sign Up",
+      "create_your_account": "Create your account",
+      "form": {
+        "name": "Name*",
+        "email": "Email*",
+        "password": "Password*",
+        "passwordConfirm": "Confirm Password*",
+        "submit": "Sign Up"
+      },
+      "already_have_an_account": "Already have an account?",
+      "login": "Login"
+    },
+    "forgot_password": {
+      "title": "Forgot Your Password?",
+      "description": "Enter your email address and we'll send you a link to reset your password.",
+      "email": "Email Address",
+      "submit": "Send Reset Link",
+      "password_reset_link_sent": "Password reset link has been sent to your email.",
+      "error_sending_reset_link": "Error sending password reset link.",
+      "unexpected_error": "An unexpected error occurred."
+    },
+    "reset_password": {
+      "reset_password_title": "Set Your New Password",
+      "reset_password_description": "Please enter and confirm your new password.",
+      "new_password": "New Password",
+      "confirm_password": "Confirm Password",
+      "reset_password": "Reset Password",
+      "password_reset_success": "Your password has been successfully changed!",
+      "error_resetting_password": "An error occurred while resetting your password.",
+      "unexpected_error": "An unexpected error occurred."
+    },
+    "global": {
+      "by_clicking_continue": "By clicking continue, you agree to our",
+      "terms_of_service": "Terms of Service",
+      "and": "and",
+      "privacy_policy": "Privacy Policy",
+      "registration_success": "Registration successful!",
+      "registration_error": "Registration failed!",
+      "login_success": "Login successful!",
+      "login_error": "Login failed!",
+      "check_email": "Please check your email and verify your account.",
+      "email_verification": "Email Verification",
+      "email_verification_success": "Email verification successful!",
+      "email_verification_error": "Email verification failed!",
+      "invalid_token": "Invalid token!",
+      "token_is_invalid_or_expired": "Token is invalid or expired!",
+      "user_not_found": "User not found!",
+      "invalid_password": "Invalid password!",
+      "email_not_verified": "Please verify your email before logging in",
+      "custom_error": "An unexpected error occurred"
+    }
+  }
+}

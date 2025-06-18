@@ -1,0 +1,72 @@
+{
+  "HomePage": {
+    "title": "Bonjour le monde!"
+  },
+  "auth": {
+    "SignIn": {
+      "welcome_back": "Bienvenue de retour",
+      "login_to_your_account": "Connectez-vous à votre compte MeKa Inc",
+      "or_continue_with": "Ou continuer avec",
+      "dont_have_an_account": "Vous n'avez pas de compte ?",
+      "sign_up": "S'inscrire",
+      "login_success": "Connexion réussie !",
+      "form": {
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "submit": "Se connecter"
+      }
+    },
+    "SignUp": {
+      "title": "S'inscrire",
+      "create_your_account": "Créez votre compte",
+      "form": {
+        "name": "Nom*",
+        "email": "E-mail*",
+        "password": "Mot de passe*",
+        "passwordConfirm": "Confirmer le mot de passe*",
+        "submit": "S'inscrire"
+      },
+      "already_have_an_account": "Vous avez déjà un compte ?",
+      "login": "Se connecter"
+    },
+    "forgot_password": {
+      "title": "Mot de passe oublié ?",
+      "description": "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+      "email": "Adresse e-mail",
+      "submit": "Envoyer le lien de réinitialisation",
+      "password_reset_link_sent": "Le lien de réinitialisation du mot de passe a été envoyé à votre e-mail.",
+      "error_sending_reset_link": "Erreur lors de l'envoi du lien de réinitialisation du mot de passe.",
+      "unexpected_error": "Une erreur inattendue est survenue."
+    },
+    "reset_password": {
+      "reset_password_title": "Définissez votre nouveau mot de passe",
+      "reset_password_description": "Veuillez entrer et confirmer votre nouveau mot de passe.",
+      "new_password": "Nouveau mot de passe",
+      "confirm_password": "Confirmer le mot de passe",
+      "reset_password": "Réinitialiser le mot de passe",
+      "password_reset_success": "Votre mot de passe a été changé avec succès !",
+      "error_resetting_password": "Une erreur est survenue lors de la réinitialisation de votre mot de passe.",
+      "unexpected_error": "Une erreur inattendue est survenue."
+    },
+    "global": {
+      "by_clicking_continue": "En cliquant sur continuer, vous acceptez nos",
+      "terms_of_service": "Conditions d'utilisation",
+      "and": "et notre",
+      "privacy_policy": "Politique de confidentialité",
+      "registration_success": "Inscription réussie !",
+      "registration_error": "Échec de l'inscription !",
+      "login_success": "Connexion réussie !",
+      "login_error": "Échec de la connexion !",
+      "check_email": "Veuillez vérifier votre e-mail et vérifier votre compte.",
+      "email_verification": "Vérification de l'e-mail",
+      "email_verification_success": "Vérification de l'e-mail réussie !",
+      "email_verification_error": "Échec de la vérification de l'e-mail !",
+      "invalid_token": "Jeton invalide !",
+      "token_is_invalid_or_expired": "Le jeton est invalide ou a expiré !",
+      "user_not_found": "Utilisateur non trouvé !",
+      "invalid_password": "Mot de passe invalide !",
+      "email_not_verified": "Veuillez vérifier votre e-mail avant de vous connecter",
+      "custom_error": "Une erreur inattendue est survenue"
+    }
+  }
+}

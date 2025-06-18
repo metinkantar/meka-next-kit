@@ -1,0 +1,72 @@
+{
+  "HomePage": {
+    "title": "Merhaba dünya!"
+  },
+  "auth": {
+    "SignIn": {
+      "welcome_back": "Tekrar hoş geldiniz",
+      "login_to_your_account": "MeKa Inc hesabınıza giriş yapın",
+      "or_continue_with": "Veya ile devam et",
+      "dont_have_an_account": "Hesabınız yok mu?",
+      "sign_up": "Kaydol",
+      "login_success": "Giriş başarılı!",
+      "form": {
+        "email": "E-posta",
+        "password": "Şifre",
+        "submit": "Giriş Yap"
+      }
+    },
+    "SignUp": {
+      "title": "Kaydol",
+      "create_your_account": "Hesabınızı oluşturun",
+      "form": {
+        "name": "Ad*",
+        "email": "E-posta*",
+        "password": "Şifre*",
+        "passwordConfirm": "Şifreyi Onayla*",
+        "submit": "Kaydol"
+      },
+      "already_have_an_account": "Zaten bir hesabınız var mı?",
+      "login": "Giriş yap"
+    },
+    "forgot_password": {
+      "title": "Şifrenizi mi Unuttunuz?",
+      "description": "E-posta adresinizi girin, şifrenizi sıfırlamanız için size bir bağlantı göndereceğiz.",
+      "email": "E-posta Adresi",
+      "submit": "Sıfırlama Bağlantısı Gönder",
+      "password_reset_link_sent": "Şifre sıfırlama bağlantısı e-postanıza gönderildi.",
+      "error_sending_reset_link": "Şifre sıfırlama bağlantısı gönderilirken hata oluştu.",
+      "unexpected_error": "Beklenmeyen bir hata oluştu."
+    },
+    "reset_password": {
+      "reset_password_title": "Yeni Şifrenizi Belirleyin",
+      "reset_password_description": "Lütfen yeni şifrenizi girin ve onaylayın.",
+      "new_password": "Yeni Şifre",
+      "confirm_password": "Şifreyi Onayla",
+      "reset_password": "Şifreyi Sıfırla",
+      "password_reset_success": "Şifreniz başarıyla değiştirildi!",
+      "error_resetting_password": "Şifrenizi sıfırlarken bir hata oluştu.",
+      "unexpected_error": "Beklenmeyen bir hata oluştu."
+    },
+    "global": {
+      "by_clicking_continue": "Devam et'e tıklayarak, aşağıdaki koşulları kabul etmiş olursunuz:",
+      "terms_of_service": "Hizmet Şartları",
+      "and": "ve",
+      "privacy_policy": "Gizlilik Politikası",
+      "registration_success": "Kayıt başarılı!",
+      "registration_error": "Kayıt başarısız!",
+      "login_success": "Giriş başarılı!",
+      "login_error": "Giriş başarısız!",
+      "check_email": "Lütfen e-postanızı kontrol edin ve hesabınızı doğrulayın.",
+      "email_verification": "E-posta Doğrulama",
+      "email_verification_success": "E-posta doğrulama başarılı!",
+      "email_verification_error": "E-posta doğrulama başarısız!",
+      "invalid_token": "Geçersiz jeton!",
+      "token_is_invalid_or_expired": "Jeton geçersiz veya süresi dolmuş!",
+      "user_not_found": "Kullanıcı bulunamadı!",
+      "invalid_password": "Geçersiz şifre!",
+      "email_not_verified": "Lütfen giriş yapmadan önce e-postanızı doğrulayın",
+      "custom_error": "Beklenmeyen bir hata oluştu"
+    }
+  }
+}
