@@ -58,6 +58,7 @@ model Account {
     scope             String? // İzin verilen kapsamlar
     id_token          String? // Kimlik tokenı
     session_state     String? // Oturum durumu
+    
     // İlişkiler
     user              User     @relation(fields: [userId], references: [id], onDelete: Cascade) // Hesap sahibini temsil eden kullanıcı
     // Zaman damgaları

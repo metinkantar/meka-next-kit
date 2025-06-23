@@ -30,7 +30,8 @@ bun dev
 
 Sonucu görmek için tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açın.
 
-Sayfayı düzenlemeye `app/page.tsx` dosyasını değiştirerek başlayabilirsiniz. Dosyayı düzenledikçe sayfa otomatik olarak güncellenir.
+Sayfayı düzenlemeye `app/[locale]/(app)page.tsx` dosyasını değiştirerek başlayabilirsiniz. Dosyayı düzenledikçe sayfa otomatik olarak güncellenir.
+Bunu dışında "(auth) Login / Register" ve "(panel) Admin Dashboard" rotaları bulunmaktadır.
 
 Bu proje, Vercel için yeni bir yazı tipi ailesi olan [Geist](https://vercel.com/font) yazı tipini otomatik olarak optimize etmek ve yüklemek için [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) kullanır.
 
